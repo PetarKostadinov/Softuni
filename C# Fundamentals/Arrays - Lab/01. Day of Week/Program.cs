@@ -27,6 +27,11 @@ namespace orderByAge
             {
                 Console.WriteLine($"{kvp.Key} with ID: {kvp.Value[0]} is {kvp.Value[1]} years old.");
             }
+			
+			    foreach (var kvp in myDic.OrderBy(x => x.Value[1]))
+            {
+                Console.WriteLine($"{kvp.Key} with ID: {kvp.Value[0]} is {kvp.Value[1]} years old.");
+            }
 
         }
     }
