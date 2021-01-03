@@ -25,7 +25,7 @@
 
             foreach (var p in parantheses)
             {
-                //open parantheses
+               
                 if (parenthesesPair.ContainsKey(p))
                 {
                     stack.Push(p);
