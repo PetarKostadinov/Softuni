@@ -32,8 +32,8 @@
                 }
                 else
                 {
-                    var openParantheses = stack.Pop();
-                    if (parenthesesPair[openParantheses] != p)
+                    var openBrackets = stack.Pop();
+                    if (parenthesesPair[openBrackets] != p)
                     {
                         Console.WriteLine("NO");
                         return;
