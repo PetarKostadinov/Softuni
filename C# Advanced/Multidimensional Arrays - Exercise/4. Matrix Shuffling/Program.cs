@@ -32,7 +32,6 @@ namespace _4._Matrix_Shuffling
                     continue;
                 }
 
-
                 string[] commands = command.Split();
 
                 int rowIndexFirst = int.Parse(commands[1]);
@@ -43,31 +42,15 @@ namespace _4._Matrix_Shuffling
                 string firstElement = matrix[rowIndexFirst, colIndexFirst];
                 string secondElement = matrix[rowIndexSecond, colIndexSecond];
 
-                for (int row = 0; row < rows; row++)
-                {
-                    for (int col = 0; col < cols; col++)
-                    {
-                        if (row == rowIndexFirst && col == colIndexFirst)
-                        {
-                            matrix[row, col] = secondElement;
-
-                        }
-                        else if (row == rowIndexSecond && col == colIndexSecond)
-                        {
-                            matrix[row, col] = firstElement;
-                        }
-                    }
-                }
+                matrix[rowIndexFirst, colIndexFirst] = secondElement;
+                matrix[rowIndexSecond, colIndexSecond] = firstElement;
+   
                 PrintMatrix(matrix);
             }
-           
-
         }
 
         private static bool validateCommand(string command, int rows, int cols)
-        {
-           
-
+        {  
             string[] commands = command.Split();
 
             if (commands.Length == 5
