@@ -19,9 +19,7 @@ namespace _9._Simple_Text_Editor
 
             for (int i = 0; i < count; i++)
             {
-                string[] comands = Console.ReadLine()
-                    .Split(' ', StringSplitOptions.RemoveEmptyEntries)
-                    .ToArray();
+                var comands = Console.ReadLine().Split().ToArray();
 
                 string currComand = comands[0];
 
@@ -30,6 +28,7 @@ namespace _9._Simple_Text_Editor
                     string letters = comands[1];
 
                     sb.Append(letters);
+
                     stack.Push(sb.ToString());
                 }
                 else if (currComand == "2")
@@ -37,8 +36,9 @@ namespace _9._Simple_Text_Editor
                     int numbersToErase = int.Parse(comands[1]);
 
                     sb.Remove(sb.Length - numbersToErase, numbersToErase);
-
+                   
                     stack.Push(sb.ToString());
+
                 }
                 else if (currComand == "3")
                 {
@@ -48,10 +48,9 @@ namespace _9._Simple_Text_Editor
                 }
                 else if (currComand == "4")
                 {
+                   sb.Clear();
                     stack.Pop();
-                    sb.Clear();
                     sb.Append(stack.Peek());
-
                 }
             }
         }
