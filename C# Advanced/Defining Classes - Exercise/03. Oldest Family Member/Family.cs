@@ -1,30 +1,38 @@
-﻿namespace DefiningClasses
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    public class Family
-    {
-        private HashSet<Person> members;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
+namespace DefiningClasses
+{
+   public class Family
+    {
         public Family()
         {
-            this.members = new HashSet<Person>();
+            People = new List<Person>();
         }
-
-        //methods
+        public List<Person> People { get; set; }
+      
         public void AddMember(Person member)
         {
-            this.members.Add(member);
+            People.Add(member);
         }
 
-        public Person GetOldestMember()
+        public  Person GetOldestMember()
         {
-            Person oldest = this.members.OrderByDescending(p => p.Age).FirstOrDefault();
-            return oldest;
+            int maxValue = int.MinValue;
 
+            foreach (var member in People)
+            {
+                if (member.Age > maxValue)
+                {
+                    maxValue = member.Age;
+
+                }
+            }
+            
+            return People.FirstOrDefault(x => x.Age == maxValue);
+            //Person oldest = this.People.OrderByDescending(x => x.Age).FirstOrDefault();
         }
-
     }
 }
