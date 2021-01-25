@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "⦁EvenLines", "ConsoleApp6\⦁EvenLines.csproj", "{57CA68BE-A18D-4688-8ACB-06F866446E29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57CA68BE-A18D-4688-8ACB-06F866446E29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57CA68BE-A18D-4688-8ACB-06F866446E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57CA68BE-A18D-4688-8ACB-06F866446E29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57CA68BE-A18D-4688-8ACB-06F866446E29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04C4ABEB-03FA-499E-9F4F-AF623ADD4315}
+	EndGlobalSection
+EndGlobal
