@@ -40,7 +40,7 @@ namespace Find_Evens_or_Odds
             }
             else
             {
-               result = numbers.FindAll(x => !isEvenPredicate(x));
+                result = numbers.Where(x => !isEvenFunc(x)).ToList();
             }
             printNUmbers(result);
         }
