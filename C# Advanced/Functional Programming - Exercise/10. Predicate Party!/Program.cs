@@ -76,7 +76,7 @@ namespace Predicate_Party
             }
             if (names.Count > 0)
             {
-                Console.WriteLine($"{string.Join(", ", names)} are going to the party");
+                Console.WriteLine($"{string.Join(", ", names)} are going to the party!");
             }
             else
             {
