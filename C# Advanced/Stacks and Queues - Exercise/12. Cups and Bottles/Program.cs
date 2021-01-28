@@ -42,12 +42,11 @@ namespace Cups_and_Bottles
                 }
 
                 int currBottle = bottles.Pop();
-                int currCup = cups.Peek();
+                int currCup = cups.Dequeue();
 
                 if (currBottle >= currCup)
                 {
                     wasted += currBottle - currCup;
-                    cups.Dequeue();
                 }
                 else
                 {
@@ -59,13 +58,11 @@ namespace Cups_and_Bottles
 
                         if (nextBottle >= leftForRefill)
                         {
-                            wasted += nextBottle - leftForRefill;
-                            cups.Dequeue();
+                            wasted += nextBottle - leftForRefill;   
                             break;
                         }
                         else
                         {
-
                             leftForRefill -= nextBottle;
                         }
 
@@ -76,26 +73,14 @@ namespace Cups_and_Bottles
 
             if (cups.Count == 0)
             {
-
-                Console.Write("Bottles:" + " ");
-
-                foreach (var bottle in bottles)
-                {
-                    Console.Write(string.Join(" ", bottle));
-                }
-                Console.WriteLine();
-                Console.WriteLine($"Wasted litters of water: {wasted}");
+                Console.WriteLine($"Bottles: {string.Join(" ", bottles)}");
             }
             else
             {
-                Console.Write("Cups:" + " ");
-                foreach (var cup in cups)
-                {
-                    Console.Write(string.Join(" ", cup + " "));
-                }
-                Console.WriteLine();
-                Console.WriteLine($"Wasted litters of water: {wasted}");
+                 Console.WriteLine($"Cups: {string.Join(" ", cups)}");
             }
+                
+            Console.WriteLine($"Wasted litters of water: {wasted}");
         }
     }
 }
