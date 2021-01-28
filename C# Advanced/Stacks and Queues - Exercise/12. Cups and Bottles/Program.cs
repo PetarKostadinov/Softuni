@@ -53,7 +53,7 @@ namespace Cups_and_Bottles
                 {
                     leftForRefill = currCup - currBottle;
 
-                    while (leftForRefill > 0 && bottles.Count != 0)
+                    while (leftForRefill > 0)
                     {
                         int nextBottle = bottles.Pop();
 
