@@ -18,21 +18,11 @@ namespace Cups_and_Bottles
                .Select(int.Parse)
                .ToList();
 
-            Stack<int> bottles = new Stack<int>();
-            Queue<int> cups = new Queue<int>();
+            Queue<int> cups = new Queue<int>(input1);
+            Stack<int> bottles = new Stack<int>(input2);
 
             int wasted = 0;
             int leftForRefill = 0;
-
-            foreach (var cup in input1)
-            {
-                cups.Enqueue(cup);
-
-            }
-            foreach (var bottle in input2)
-            {
-                bottles.Push(bottle);
-            }
 
             while (true)
             {
