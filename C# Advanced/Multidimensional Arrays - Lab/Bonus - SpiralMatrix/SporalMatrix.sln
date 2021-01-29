@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SporalMatrix", "SporalMatrix\SporalMatrix.csproj", "{90693998-EE91-4FB2-974E-BEEB038BDF22}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{90693998-EE91-4FB2-974E-BEEB038BDF22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90693998-EE91-4FB2-974E-BEEB038BDF22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90693998-EE91-4FB2-974E-BEEB038BDF22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90693998-EE91-4FB2-974E-BEEB038BDF22}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F69BC5CF-5F60-4966-8EE3-20F3C718B19C}
+	EndGlobalSection
+EndGlobal
