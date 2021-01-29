@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. Radioactive Mutant Vampire Bunnies", "10. Radioactive Mutant Vampire Bunnies\10. Radioactive Mutant Vampire Bunnies.csproj", "{FC09C6C2-6FE1-43FF-B41E-86D67F60A611}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC09C6C2-6FE1-43FF-B41E-86D67F60A611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC09C6C2-6FE1-43FF-B41E-86D67F60A611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC09C6C2-6FE1-43FF-B41E-86D67F60A611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC09C6C2-6FE1-43FF-B41E-86D67F60A611}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F421C93-80DF-41AA-87EA-F8FBEECA73CB}
+	EndGlobalSection
+EndGlobal
