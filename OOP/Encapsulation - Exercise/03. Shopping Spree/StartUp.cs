@@ -4,14 +4,13 @@ using System.Linq;
 
 namespace ShoppingSpree
 {
-   public class StartUp
+    public class StartUp
     {
-      
+
         static void Main(string[] args)
         {
             try
             {
-
                 List<Person> people = new List<Person>();
                 List<Product> products = new List<Product>();
 
@@ -25,8 +24,6 @@ namespace ShoppingSpree
                     int money = int.Parse(inputPerson[1]);
 
                     people.Add(new Person(name, money));
-
-
                 }
 
                 List<string> data = Console.ReadLine().Split(";", StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -39,8 +36,6 @@ namespace ShoppingSpree
                     int price = int.Parse(inputProduct[1]);
 
                     products.Add(new Product(name, price));
-
-
                 }
 
                 while (true)
@@ -61,8 +56,6 @@ namespace ShoppingSpree
                     Product product = products.FirstOrDefault(x => x.Name == productName);
 
                     person.AddToBag(product);
-
-                  
                 }
 
                 foreach (var personResult in people)
@@ -72,13 +65,8 @@ namespace ShoppingSpree
             }
             catch (Exception ex)
             {
-
                 Console.WriteLine(ex.Message);
             }
-
-          
-
-           
         }
     }
 }

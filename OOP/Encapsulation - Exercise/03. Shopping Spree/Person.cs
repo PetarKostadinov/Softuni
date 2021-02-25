@@ -5,9 +5,8 @@ using System.Text;
 
 namespace ShoppingSpree
 {
-   public class Person
+    public class Person
     {
-
         private string name;
         private decimal money;
         private List<Product> bag;
@@ -15,11 +14,11 @@ namespace ShoppingSpree
         public Person(string name, decimal money)
         {
             this.Name = name;
-           this.Money = money;
+            this.Money = money;
             this.bag = new List<Product>();
         }
 
-        public string Name 
+        public string Name
         {
             get
             {
@@ -36,7 +35,7 @@ namespace ShoppingSpree
             }
         }
         public decimal Money
-        { 
+        {
             get
             {
                 return this.money;
@@ -67,7 +66,6 @@ namespace ShoppingSpree
             {
                 Console.WriteLine($"{this.Name} can't afford {product.Name}");
             }
-
         }
         public override string ToString()
         {

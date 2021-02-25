@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ShoppingSpree
 {
-   public class Product
+    public class Product
     {
         private string name;
         private decimal price;
@@ -15,7 +15,7 @@ namespace ShoppingSpree
             this.Price = price;
         }
 
-        public string Name  
+        public string Name
         {
             get
             {
@@ -23,7 +23,6 @@ namespace ShoppingSpree
             }
             private set
             {
-
                 if (string.IsNullOrWhiteSpace(value))
                 {
                     throw new Exception("Name cannot be empty");
@@ -31,7 +30,7 @@ namespace ShoppingSpree
                 this.name = value;
             }
         }
-        public decimal  Price 
+        public decimal Price
         {
             get
             {
