@@ -4,7 +4,7 @@ using MilitaryElite.Enumerations;
 
 namespace MilitaryElite.Contracts
 {
-    public interface IMissions
+    public interface IMission
     {
         public string CodeName { get; }
 

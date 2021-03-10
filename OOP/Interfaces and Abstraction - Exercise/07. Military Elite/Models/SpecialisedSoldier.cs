@@ -1,5 +1,6 @@
 ﻿using MilitaryElite.Contracts;
 using MilitaryElite.Enumerations;
+using MilitaryElite.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,7 @@ namespace MilitaryElite.Models
         protected SpecialisedSoldier(int id, string firstName, string lastName, decimal salary, string corps) 
             : base(id, firstName, lastName, salary)
         {
-            this.Corps = corps;
+            this.Corps = TryParseCorps(corps);
         }
 
         public Corps Corps { get; private set; }
@@ -20,6 +21,18 @@ namespace MilitaryElite.Models
         {
             Corps corps;
             bool parsed = Enum.TryParse<Corps>(corpsStr, out corps);
+
+            if (!parsed)
+            {
+                throw new InvalidCorpsExceptions();
+            }
+
+            return corps;
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + Environment.NewLine + $"Corps: {this.Corps.ToString()}";
         }
     }
 }

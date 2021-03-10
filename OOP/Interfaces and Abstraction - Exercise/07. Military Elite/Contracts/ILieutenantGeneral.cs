@@ -6,8 +6,8 @@ namespace MilitaryElite.Contracts
 {
     public interface ILieutenantGeneral : IPrivate
     {
-        public IReadOnlyCollection<IPrivate> Privates { get;}
+        IReadOnlyCollection<ISoldier> Privates { get;}
 
-        public void AddPrivate(IPrivate @private);
+        public void AddPrivate(ISoldier @private);
     }
 }
