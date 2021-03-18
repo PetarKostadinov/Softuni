@@ -59,7 +59,7 @@ namespace Tests
 
             for (int i = 0; i < people.Length; i++)
             {
-                people[i] = new Person(i + 1, $"A{i}");
+                people[i] = new Person(i + 10, $"A{i}");
             }
 
             ExtendedDatabase extendedDatabase = new ExtendedDatabase(people);
