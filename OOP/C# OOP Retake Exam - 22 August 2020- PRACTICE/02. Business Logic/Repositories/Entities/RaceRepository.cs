@@ -10,7 +10,7 @@ namespace EasterRaces.Repositories.Entities
     public class RaceRepository : IRepository<IRace>
     {
 
-        private readonly List<IRace> races;
+        private readonly ICollection<IRace> races;
 
         public RaceRepository()
         {
@@ -24,7 +24,7 @@ namespace EasterRaces.Repositories.Entities
 
         public IReadOnlyCollection<IRace> GetAll()
         {
-            return this.races;
+            return (IReadOnlyCollection<IRace>)this.races;
         }
 
         public IRace GetByName(string name)

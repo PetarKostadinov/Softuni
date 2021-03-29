@@ -9,7 +9,7 @@ namespace EasterRaces.Repositories.Entities
 {
     public class DriverRepository : IRepository<IDriver>
     {
-        private readonly List<IDriver> drivers;
+        private readonly ICollection<IDriver> drivers;
         public DriverRepository()
         {
             this.drivers = new List<IDriver>();
@@ -21,7 +21,7 @@ namespace EasterRaces.Repositories.Entities
 
         public IReadOnlyCollection<IDriver> GetAll()
         {
-            return this.drivers;
+            return (IReadOnlyCollection<IDriver>)this.drivers;
         }
 
         public IDriver GetByName(string name)

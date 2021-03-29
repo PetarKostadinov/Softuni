@@ -11,7 +11,7 @@ namespace EasterRaces
     {
         public static void Main()
         {
-            File.Delete(@"../../../result.txt");
+           
 
             IChampionshipController controller = new ChampionshipController();
             IReader reader = new ConsoleReader();

@@ -69,6 +69,14 @@ namespace EasterRaces.Core
 
         public string CreateCar(string type, string model, int horsePower)
         {
+
+            var isInRepo = this.carRepo.GetByName(model);
+
+            if (isInRepo != null)
+            {
+                throw new ArgumentException($"Car {model} is already created.");
+            }
+
             ICar car = null;
 
             if (type == "Muscle")
@@ -81,12 +89,6 @@ namespace EasterRaces.Core
                 car = new SportsCar(model, horsePower);
             }
 
-            var isInRepo = this.carRepo.GetByName(model);
-
-            if (isInRepo != null)
-            {
-                throw new ArgumentException($"Car {model} is already created.");
-            }
 
             if (car != null)
             {
@@ -94,12 +96,12 @@ namespace EasterRaces.Core
             }
             
 
-            return $"{type + "Car"} {model} is created.";
+            return $"{car.GetType().Name} {model} is created.";
         }
 
         public string CreateDriver(string driverName)
         {
-            Driver driver = new Driver(driverName);
+           
 
             var isInRepo = this.driverRepo.GetByName(driverName);
 
@@ -107,6 +109,8 @@ namespace EasterRaces.Core
             {
                 throw new ArgumentException($"Driver {driverName} is already created.");
             }
+
+            Driver driver = new Driver(driverName);
 
             this.driverRepo.Add(driver);
 
@@ -117,15 +121,14 @@ namespace EasterRaces.Core
 
         public string CreateRace(string name, int laps)
         {
-            IRace race = new Race(name, laps);
-
+       
             var isInThere = this.raceRepo.GetByName(name);
 
             if (isInThere != null)
             {
-                throw new InvalidOperationException($"Race {name} is already create.");
+                throw new InvalidOperationException($"Race {name} is already created.");
             }
-
+            IRace race = new Race(name, laps);
             this.raceRepo.Add(race);
 
             return $"Race {name} is created.";
@@ -150,16 +153,18 @@ namespace EasterRaces.Core
                 .CalculateRacePoints(race.Laps))
                 .ToList();
 
-           
+            this.raceRepo.Remove(race);
+
 
             StringBuilder sb = new StringBuilder();
+
+            drivers[0].WinRace();
 
             sb.AppendLine($"Driver {drivers[0].Name} wins {raceName} race.");
             sb.AppendLine($"Driver {drivers[1].Name} is second in {raceName} race.");
             sb.AppendLine($"Driver {drivers[2].Name} is third in {raceName} race.");
 
-            this.raceRepo.Remove(race);
-
+            
             return sb.ToString().TrimEnd();
 
         }

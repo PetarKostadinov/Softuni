@@ -56,19 +56,13 @@ namespace EasterRaces.Core.Entities
                     }
 
                     this.writer.WriteLine(resultMessage);
-                    using (StreamWriter file = new StreamWriter(@"../../../result.txt", true))
-                    {
-                        file.WriteLine(resultMessage);
-                    }
+                   
                 }
                 catch (Exception e)
                 {
                     this.writer.WriteLine(e.Message);
 
-                    using (StreamWriter file = new StreamWriter(@"../../../result.txt", true))
-                    {
-                        file.WriteLine(e.Message);
-                    }
+                  
                 }
 
                 command = this.reader.ReadLine();

@@ -7,12 +7,12 @@ namespace EasterRaces.Models.Cars.Entities
 {
     public abstract class Car : ICar
     {
-
-        private string model;
-        private int horsePower;
-        private double cubicCentimeters;
         private int minHorsePower;
         private int maxHorsePower;
+        private string model;
+        private int horsePower;
+       
+        
 
         protected Car(string model, int horsePower, double cubicCentimeters, int minHorsePower, int maxHorsePower)
         {
@@ -53,7 +53,7 @@ namespace EasterRaces.Models.Cars.Entities
             private set
             {
 
-                if (value < this.minHorsePower || value > maxHorsePower)
+                if (value < this.minHorsePower || value > this.maxHorsePower)
                 {
                     throw new ArgumentException($"Invalid horse power: {value}.");
                 }
@@ -62,7 +62,7 @@ namespace EasterRaces.Models.Cars.Entities
             }
         }
 
-        public double CubicCentimeters { get; private set; }
+        public double CubicCentimeters { get; }
 
         public double CalculateRacePoints(int laps)
         {

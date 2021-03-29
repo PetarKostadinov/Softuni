@@ -10,7 +10,7 @@ namespace EasterRaces.Repositories.Entities
     public class CarRepository : IRepository<ICar>
     {
 
-        private readonly List<ICar> cars;
+        private readonly ICollection<ICar> cars;
 
         public CarRepository()
         {
@@ -24,7 +24,7 @@ namespace EasterRaces.Repositories.Entities
 
         public IReadOnlyCollection<ICar> GetAll()
         {
-            return this.cars;
+            return (IReadOnlyCollection<ICar>)this.cars;
         }
 
         public ICar GetByName(string name)

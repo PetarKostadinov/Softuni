@@ -3,6 +3,7 @@ using EasterRaces.Models.Drivers.Entities;
 using EasterRaces.Models.Races.Contracts;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace EasterRaces.Models.Races.Entities
@@ -12,7 +13,7 @@ namespace EasterRaces.Models.Races.Entities
 
         private string name;
         private int laps;
-        private List<IDriver> drivers;
+        private readonly ICollection<IDriver> drivers;
 
         public Race(string name, int laps)
         {
@@ -30,7 +31,7 @@ namespace EasterRaces.Models.Races.Entities
             {
                 if (value.Length < 5 || string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException($"Name {value} cannot be less than 5 symbols.");
+                    throw new ArgumentException( $"Name {value} cannot be less than 5 symbols.");
                 }
 
                 this.name = value;
@@ -55,14 +56,14 @@ namespace EasterRaces.Models.Races.Entities
             }
         }
 
-        public IReadOnlyCollection<IDriver> Drivers => this.drivers.AsReadOnly();
+        public IReadOnlyCollection<IDriver> Drivers => (IReadOnlyCollection<IDriver>)this.drivers;
 
         public void AddDriver(IDriver driver)
         {
            
             if (driver == null)
             {
-                throw new ArgumentNullException("Driver cannot be null.");
+                throw new ArgumentNullException(nameof(IDriver),"Driver cannot be null.");
             }
 
             if (driver.CanParticipate == false)
@@ -70,9 +71,9 @@ namespace EasterRaces.Models.Races.Entities
                 throw new ArgumentException($"Driver {driver.Name} could not participate in race.");
             }
 
-            if (this.Drivers.GetType().Name.Contains(driver.Name))
+            if (this.drivers.Any(x => x.Name == driver.Name))
             {
-                throw new ArgumentNullException($"Driver { driver.Name } is already added in { this.Name} race.");
+                throw new ArgumentNullException(nameof(IDriver), $"Driver { driver.Name } is already added in { this.Name} race.");
             }
 
             this.drivers.Add(driver);
