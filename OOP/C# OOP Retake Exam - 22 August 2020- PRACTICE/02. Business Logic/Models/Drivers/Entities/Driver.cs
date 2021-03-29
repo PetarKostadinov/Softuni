@@ -1,10 +1,6 @@
-﻿using EasterRaces.Models.Cars.Contracts;
-using EasterRaces.Models.Cars.Entities;
+﻿using System;
+using EasterRaces.Models.Cars.Contracts;
 using EasterRaces.Models.Drivers.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace EasterRaces.Models.Drivers.Entities
 {
