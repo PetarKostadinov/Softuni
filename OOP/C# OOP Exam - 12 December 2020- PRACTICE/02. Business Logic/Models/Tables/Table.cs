@@ -18,19 +18,18 @@ namespace Bakery.Models.Tables
         private int tableNumber;
         private int capacity;
         private int numOfPeople;
-        private decimal pricePP;
+        private decimal pricePerPerson;
 
-        private Table()
-        {
-            this.foodOrders = new List<IBakedFood>();
-            this.drinkOrders = new List<IDrink>();
-        }
+       
 
-        protected Table(int tableNum, int capacity, decimal pricePP) : this()
+        protected Table(int tableNum, int capacity, decimal pricePerPerson) 
         {
             this.TableNumber = tableNum;
             this.Capacity = capacity;
-            this.PricePerPerson = pricePP;
+            this.PricePerPerson = pricePerPerson;
+
+            this.foodOrders = new List<IBakedFood>();
+            this.drinkOrders = new List<IDrink>();
         }
 
         public int TableNumber
@@ -67,8 +66,8 @@ namespace Bakery.Models.Tables
 
         public decimal PricePerPerson
         {
-            get { return this.pricePP; }
-            private set { this.pricePP = value; }
+            get { return this.pricePerPerson; }
+            private set { this.pricePerPerson = value; }
         }
 
         public bool IsReserved { get; set; }
@@ -80,7 +79,7 @@ namespace Bakery.Models.Tables
             this.foodOrders.Clear();
             this.drinkOrders.Clear();
             this.IsReserved = false;
-            this.Capacity = 0;
+          
         }
 
         public decimal GetBill()
