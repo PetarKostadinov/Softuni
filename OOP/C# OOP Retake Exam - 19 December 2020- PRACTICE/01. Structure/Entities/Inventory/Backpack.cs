@@ -4,9 +4,9 @@ using System.Text;
 
 namespace WarCroft.Entities.Inventory
 {
-    public class Backpack : Bag, IBag
+    public class Backpack : Bag
     {
-        public Backpack() 
+        public Backpack()
             : base(100)
         {
         }

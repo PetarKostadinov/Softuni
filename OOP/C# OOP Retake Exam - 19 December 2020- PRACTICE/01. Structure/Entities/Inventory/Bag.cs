@@ -2,45 +2,51 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WarCroft.Constants;
 using WarCroft.Entities.Items;
 
 namespace WarCroft.Entities.Inventory
 {
     public abstract class Bag : IBag
     {
-
-        private ICollection<Item> items;
+        private int capacity = 100;
         private int load;
-        
+        private readonly ICollection<Item> items;
 
-        public Bag(int capacity)
+        protected Bag(int capacity)
         {
+            this.Capacity = capacity;
             this.Load = load;
-            this.items = new HashSet<Item>();
-           
-        }
-        public int Capacity { get; set; } = 100;
+            this.items = new List<Item>();
 
-        public int Load
+        }
+
+       
+
+        public int Capacity { get; set; }
+
+        public int Load 
         {
-            get 
+            get
             {
-                return this.load; 
+                return this.load;
             }
-            set
+            private set
             {
-               this.load = this.Items.Sum(x => x.Weight);
+                value = this.Items.Sum(x => x.Weight);
+
+                this.load = value;
             }
         }
 
-        public IReadOnlyCollection<Item> Items => (IReadOnlyCollection<Item>)this.items;
+        public IReadOnlyCollection<Item> Items => this.Items;
+
+        
 
         public void AddItem(Item item)
         {
-            if (this.load + item.Weight > this.Capacity)
+            if (item.Weight + this.Load > this.Capacity)
             {
-                throw new InvalidOperationException(ExceptionMessages.ExceedMaximumBagCapacity);
+                throw new InvalidOperationException("Bag is full!");
             }
 
             this.items.Add(item);
@@ -48,21 +54,21 @@ namespace WarCroft.Entities.Inventory
 
         public Item GetItem(string name)
         {
-            var item = this.items.FirstOrDefault(x => x.GetType().Name == name);
-
-            if (this.items.Count == 0)
+            if (this.Load == 0)
             {
-                throw new InvalidOperationException(ExceptionMessages.EmptyBag);
+                throw new InvalidOperationException("Bag is empty!");
             }
 
-            if (this.items.GetType().Name != name)
+            var existingItem = this.Items.FirstOrDefault(x => x.GetType().Name == name);
+
+            if (existingItem == null)
             {
-                throw new ArgumentException(ExceptionMessages.ItemNotFoundInBag);
+                throw new ArgumentException($"No item with name {name} in bag!");
             }
 
-            this.items.Remove(item);
+            this.items.Remove(existingItem);
 
-            return item;
+            return existingItem;
         }
     }
 }

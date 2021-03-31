@@ -1,4 +1,5 @@
 ﻿using System;
+
 using WarCroft.Constants;
 using WarCroft.Entities.Inventory;
 using WarCroft.Entities.Items;
@@ -8,71 +9,95 @@ namespace WarCroft.Entities.Characters.Contracts
     public abstract class Character
     {
         // TODO: Implement the rest of the class.
-
         private string name;
-        private double health;
-        private double armour;
-        protected Character(string name, double health, double armour, double abilityPoints, Bag bag)
+        private double baseHealth;
+        private double healt;
+        private double baseArmor;
+        private double armor;
+        private double abilityPoints;
+        private Bag bag;
+
+        protected Character(string name, double healt, double armor, double abilityPoints, Bag bag)
         {
-            this.Name = name;
-            this.BaseHealth = health;
-            this.Health = health;
-            this.BaseArmor = armour;
-            this.Armour = armour;
-            this.AbilityPoints = abilityPoints;
-            this.Bag = bag;
-        }
+            Name = name;
+            BaseHealth = baseHealth;
+            Healt = healt;
+            BaseArmor = baseArmor;
+            Armor = armor;
+            AbilityPoints = abilityPoints;
+            AbilityPoints = abilityPoints;
+            Bag = bag;
+            
+    }
 
         public string Name
         {
             get { return this.name; }
-            set
+            private set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentException(string.Format(ExceptionMessages.CharacterNameInvalid));
+                    throw new ArgumentException("Name cannot be null or whitespace!");
                 }
 
                 this.name = value;
             }
         }
 
-        public double BaseHealth { get; set; }
-
-        public double Health
+        public double BaseHealth
         {
-            get { return this.health; }
-            set
+            get { return this.baseHealth; }
+            private set { this.baseHealth = value; }
+        }
+
+        public double Healt
+        {
+            get { return this.healt; }
+             set
             {
                 if (value > this.BaseHealth)
                 {
-                    this.health = this.BaseHealth;
+                    value = this.BaseHealth;
+                }
+                else if (value < 0)
+                {
+                    value = 0;
                 }
 
-                if (value < 0)
-                {
-                    this.health = 0;
-                }
-                this.health = value;
+                this.healt = value;
             }
         }
-        public double BaseArmor { get; set; }
 
-        public double Armour
+        public double BaseArmor
         {
-            get { return this.armour; }
-            set
+            get { return this.baseArmor; }
+            private set { this.baseArmor = value; }
+        }
+
+        public double Armor
+        {
+            get { return this.armor; }
+             set
             {
                 if (value < 0)
                 {
-                    this.armour = 0;
+                    value = 0;
                 }
-                this.armour = value;
+
+                this.armor = value;
             }
         }
-        public double AbilityPoints { get; set; }
+        
 
-        public Bag Bag { get; set; }
+
+        public double AbilityPoints
+        {
+            get { return abilityPoints; }
+            set { abilityPoints = value; }
+        }
+
+        public Bag Bag { get; private set; }
+
 
         public bool IsAlive { get; set; } = true;
 
@@ -83,37 +108,31 @@ namespace WarCroft.Entities.Characters.Contracts
                 throw new InvalidOperationException(ExceptionMessages.AffectedCharacterDead);
             }
         }
-
-        public void TakeDamage(double hitPoints)
+        void TakeDamage(double hitPoints)
         {
-            double redusingPoints = this.Armour;
-
-            if (IsAlive)
+            if (this.IsAlive)
             {
-                if (hitPoints <= this.Armour)
+                if (this.Armor >= hitPoints)
                 {
-                    this.Armour -= hitPoints;
+                    this.Armor -= hitPoints;
                 }
                 else
                 {
-                    hitPoints -= this.Armour;
-                    this.Armour = 0;
-                    this.Health -= hitPoints;
+                    hitPoints -= this.Armor;
+                    this.Armor = 0;
+                    this.Healt -= hitPoints;
 
-                    if (this.Health <= 0)
-                    {
-                        this.Health = 0;
-                        IsAlive = false;
-                    }
                 }
             }
         }
-        public void UseItem(Item item)
+
+        void UseItem(Item item)
         {
-            if (IsAlive)
+            if (this.IsAlive)
             {
                 item.AffectCharacter(this);
             }
         }
+
     }
 }

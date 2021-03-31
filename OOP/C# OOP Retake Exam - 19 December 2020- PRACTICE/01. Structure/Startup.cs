@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using WarCroft.Core;
 using WarCroft.Core.IO;
 using WarCroft.Core.IO.Contracts;
@@ -9,6 +10,8 @@ namespace WarCroft
 	{
 		public static void Main(string[] args)
 		{
+            File.Delete(@"../../../result.txt");
+
             IReader reader = new ConsoleReader();
             IWriter writer = new ConsoleWriter();
 

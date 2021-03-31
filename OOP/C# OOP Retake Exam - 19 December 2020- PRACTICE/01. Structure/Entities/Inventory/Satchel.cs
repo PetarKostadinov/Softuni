@@ -4,11 +4,11 @@ using System.Text;
 
 namespace WarCroft.Entities.Inventory
 {
-    public class Satchel : Bag, IBag
+    public class Satchel : Bag
     {
-        public Satchel() : base(20)
+        public Satchel() 
+            : base(20)
         {
-           
         }
     }
 }

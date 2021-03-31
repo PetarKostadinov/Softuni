@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using WarCroft.Entities.Characters.Contracts;
+using WarCroft.Entities.Items;
 
-namespace WarCroft.Entities.Items
+namespace WarCroft.Entities.Inventory
 {
     public class FirePotion : Item
     {
-        private const int weight = 5;
-        public FirePotion()
-            : base(weight)
+        public FirePotion() 
+            : base(5)
         {
         }
 
@@ -17,15 +17,12 @@ namespace WarCroft.Entities.Items
         {
             base.AffectCharacter(character);
 
-            if (character.IsAlive)
-            {
-                character.Health -= 20;
+            character.Healt -= 20;
 
-                if (character.Health <= 0)
-                {
-                    character.Health = 0;
-                    character.IsAlive = false;
-                }
+            if (character.Healt <= 0)
+            {
+                character.Healt = 0;
+                character.IsAlive = false;
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using WarCroft.Core.IO.Contracts;
 
@@ -79,6 +80,12 @@ namespace WarCroft.Core
             if (output != string.Empty)
             {
                 this.writer.WriteLine(output);
+
+                using (StreamWriter file = new StreamWriter(@"../../../result.txt", true))
+                {
+                    file.WriteLine(output);
+                }
+
             }
         }
     }
