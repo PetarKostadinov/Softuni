@@ -6,109 +6,112 @@ namespace FestivalManager.Tests
    // using FestivalManager.Entities;
     using NUnit.Framework;
     using System;
-   
-    using System.Linq;
-   
 
     [TestFixture]
 	public class StageTests
     {
-		private Stage stage;
-		private Song validSong;
-		private Song invalidSong;
-		private Song nullSong;
-		private Performer invalidPerformer;
-		private Performer validPerformer;
-		private Performer nullPerformer;
-		[SetUp]
-		public void InIt()
-		{
-			this.stage = new Stage();
-			 this.validPerformer = new Performer("Pesho", "Peshev", 20);
-			this.invalidPerformer = new Performer("Pesho", "Peshev", 10);
-			this.validSong = new Song("lala", new TimeSpan(0, 5, 25));
-			this.invalidSong = new Song("lala", new TimeSpan(0, 0, 25));
-			this.nullSong = null;
-			this.nullPerformer = null;
-		}
-		
+        private Song song;
+        private Song invalidTimeSong;
+        private Performer performer;
+        private Stage stage;
+        private Performer invalidPerformer;
+
+        [SetUp]
+        public void SetUp()
+        {
+            this.song = new Song("opa", new TimeSpan(0, 1, 2));
+            this.invalidTimeSong = new Song("opa", new TimeSpan(0, 0, 2));
+            this.performer = new Performer("Pep", "Kos", 20);
+            this.invalidPerformer = new Performer("Pep", "Kos", 10);
+            this.stage = new Stage();
+        }
+
 		[Test]
-	    public void testAddPerformer_ShouldThrowException_WhenUnder18()
+	    public void AddPerformerCannotBeNull_ValidateTest()
 	    {
-			Assert.Throws<ArgumentException>(() => { this.stage.AddPerformer(this.invalidPerformer); });
+
+            Assert.Throws<ArgumentNullException>(() => this.stage.AddPerformer(null));
 		}
 
-		[Test]
-		public void testAddPerformer_ShouldThrowException_WhenPerformerIsIsNull()
-		{
+        [Test]
+        public void AddPerformerSHouldThrowExceptionUnder18()
+        {
 
-			Assert.Throws<ArgumentNullException>(() => { this.stage.AddPerformer(this.nullPerformer); });
-		}
+            Assert.Throws<ArgumentException>(() => this.stage.AddPerformer(invalidPerformer));
+        }
 
-		[Test]
-		public void testAddPerformer_ShouldWork()
-		{
-			this.stage.AddPerformer(this.validPerformer);
+        [Test]
+        public void AddPerformerSHouldWork()
+        {
+            this.stage.AddPerformer(performer);
 
-			Assert.AreEqual(1, this.stage.Performers.Count);
-		}
+            Assert.AreEqual(1, stage.Performers.Count);
+        }
+
+        [Test]
+        public void AddSongCannotBeNull_ValidateTest()
+        {
+
+            Assert.Throws<ArgumentNullException>(() => this.stage.AddSong(null));
+        }
 
 
-		[Test]
-		public void testAddSong_ShouldThrowException_WhenUnder1Min()
-		{
-			Assert.Throws<ArgumentException>(() => { this.stage.AddSong(this.invalidSong); });
-		}
+        [Test]
+        public void AddSongCannotBeUnder1Min()
+        {
 
-		[Test]
-		public void testAddSong_ShouldThrowException_WhenSongIsIsNull()
-		{
+            Assert.Throws<ArgumentException>(() => this.stage.AddSong(invalidTimeSong));
+        }
 
-			Assert.Throws<ArgumentNullException>(() => { this.stage.AddSong(this.nullSong); });
-		}
+        //[Test]
 
-		[Test]
-		public void testAddSongToPerfomer_ShouldThrowException_WhenSongNameIsIsNull()
-		{
-			var nullNameSong = new Song(null, new TimeSpan(1, 2, 3));
+        //public void AddSongWork()
+        //{
 
-			Assert.Throws<ArgumentNullException>(() => { this.stage.AddSongToPerformer(nullNameSong.Name, this.validPerformer.FullName); });
-		}
+        //    this.stage.AddSong(song);
+        //    Assert.AreEqual(song, this.stage.ge);
+        //}
 
-		[Test]
-		public void testAddSongToPerfomer_ShouldWork()
-		{
-			this.stage.AddSong(this.validSong);
-			this.stage.AddPerformer(this.validPerformer);
-			this.stage.AddSongToPerformer(this.validSong.Name, this.validPerformer.FullName);
+        [Test]
+        public void AddSongToPerformerValidateNullValueSongName()
+        {
+            this.stage.AddSong(song);
+            this.stage.AddPerformer(performer);
+            Assert.Throws<ArgumentNullException>(() => this.stage.AddSongToPerformer(null, performer.FullName));
+        }
 
-			Assert.AreEqual(1, this.validPerformer.SongList.Count);
-		}
+        [Test]
+        public void AddSongToPerformerValidateNullValuePerformerName()
+        {
+            this.stage.AddSong(song);
+            this.stage.AddPerformer(performer);
+            Assert.Throws<ArgumentNullException>(() => this.stage.AddSongToPerformer(song.Name, null));
+        }
 
-		[Test]
-		public void testAddSongToPerfomer_ShoulReturnCorect()
-		{
-			this.stage.AddSong(this.validSong);
-			this.stage.AddPerformer(this.validPerformer);
-		
-			var expected = $"{validSong} will be performed by {validPerformer}";
-			var actual = this.stage.AddSongToPerformer(this.validSong.Name, this.validPerformer.FullName);
+        [Test]
+        public void AddSongWork()
+        {
+            this.stage.AddSong(song);
+            this.stage.AddPerformer(performer);
+           var result = this.stage.AddSongToPerformer(song.Name, performer.FullName);
 
-			Assert.AreEqual(actual, expected);
-		}
-		[Test]
-		public void testPlay_ShouldWork()
-		{
-			this.stage.AddSong(this.validSong);
-			this.stage.AddPerformer(this.validPerformer);
-			this.stage.AddSongToPerformer(this.validSong.Name, this.validPerformer.FullName);
-			var songsCount = this.stage.Performers.Sum(p => p.SongList.Count());
-			var result = $"{this.stage.Performers.Count} performers played {songsCount} songs";
+            Assert.AreEqual(result, $"{song} will be performed by {performer}");
+        }
 
-			var actual = stage.Play();
-			Assert.AreEqual(actual, result);
-			Assert.AreEqual(1, songsCount);
-		}
+        [Test]
+        public void AddPlayWork()
+        {
+            this.stage.AddSong(song);
+            this.stage.AddPerformer(performer);
+            this.stage.AddSongToPerformer(song.Name, performer.FullName);
 
-	}
+            var result = this.stage.Play();
+
+            Assert.AreEqual(result, $"{1} performers played {1} songs");
+        }
+
+
+
+
+    }
 }
