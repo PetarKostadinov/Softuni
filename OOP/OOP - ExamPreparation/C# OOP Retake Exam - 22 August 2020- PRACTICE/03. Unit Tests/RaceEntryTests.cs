@@ -6,90 +6,68 @@ namespace TheRace.Tests
 {
     public class RaceEntryTests
     {
+        private UnitCar unitCar;
+        private RaceEntry raceEntry;
+        private UnitDriver unitDriver;
+        private UnitDriver unitDriver1;
 
         [SetUp]
         public void Setup()
         {
+            this.unitCar = new UnitCar("OP", 100, 100);
+            this.unitDriver = new UnitDriver("Pesho", unitCar);
+            this.unitDriver1 = new UnitDriver("Niki", unitCar);
+            this.raceEntry = new RaceEntry();
+
         }
 
         [Test]
-        public void TestAddDriverMethod_ShouldThrowException_WhenDriverIsNull()
+        public void TestAddDriverShouldThrowExceptionWhenNUll()
         {
-
-
-            Assert.Throws<InvalidOperationException>(() => 
-            { 
-                var raceEntry = new RaceEntry(); 
-                raceEntry.AddDriver(null); 
-            });
-        }
-
-        [Test]
-        public void TestAddDriverMethod_ShouldThrowException_WhenDriverContainsName()
-        {
-
-
-            Assert.Throws<InvalidOperationException>(() =>
-            {
-            var raceEntry = new RaceEntry();
-                var car = new UnitCar("sports", 100, 200);
-                var driver = new UnitDriver("Pesho", car);
-                raceEntry.AddDriver(driver);
-                raceEntry.AddDriver(driver);
-            });
+            Assert.Throws<InvalidOperationException>(() => { this.raceEntry.AddDriver(null); });
         }
 
 
         [Test]
-        public void TestCalculateAverageHorsePower_ShouldThrowException_WhenMinparticipantsAreLess()
+        public void TestAddDriverShouldThrowExceptionWhenContainsSameName()
         {
+            this.raceEntry.AddDriver(unitDriver);
 
-            var raceEntry = new RaceEntry();
-            var car = new UnitCar("sports", 100, 200);
-            var driver = new UnitDriver("Pesho", car);
-            raceEntry.AddDriver(driver);
-
-            Assert.Throws<InvalidOperationException>(() =>
-            {
-                raceEntry.CalculateAverageHorsePower();
-               
-            });
+            Assert.Throws<InvalidOperationException>(() =>  this.raceEntry.AddDriver(unitDriver));
         }
-
 
         [Test]
-        public void TestAddDriverShouldWork()
+        public void TestAddDriverShouldAdd()
         {
+            this.raceEntry.AddDriver(unitDriver);
 
-            var raceEntry = new RaceEntry();
-            var car = new UnitCar("sports", 100, 200);
-            var driver = new UnitDriver("Pesho", car);
-            var result = raceEntry.AddDriver(driver);
-
-            Assert.AreEqual(1, raceEntry.Counter);
-            Assert.AreEqual(result, $"Driver {driver.Name} added in race.");
-
+            Assert.AreEqual(1, this.raceEntry.Counter);
         }
-
 
         [Test]
-        public void TestCalculateAverageHorsePower_ShouldWork()
+        public void TestAddDriverShouldReturnCorect()
         {
+            var actual = this.raceEntry.AddDriver(unitDriver);
 
-            var raceEntry = new RaceEntry();
-            var car = new UnitCar("sports", 100, 200);
-            var car1 = new UnitCar("sports", 100, 200);
-            var car2 = new UnitCar("sports", 100, 200);
-            var driver = new UnitDriver("Pesho", car);
-            var driver1 = new UnitDriver("Mesho", car1);
-            var driver2 = new UnitDriver("Lesho", car2);
-            raceEntry.AddDriver(driver);
-            raceEntry.AddDriver(driver1);
-            raceEntry.AddDriver(driver2);
-
-            Assert.AreEqual(100, raceEntry.CalculateAverageHorsePower());
-           
+            Assert.AreEqual(actual, string.Format("Driver {0} added in race.", unitDriver.Name));
         }
 
+        [Test]
+        public void TestCalculateAverageHorsePowerShouldThrowException()
+        {
+            this.raceEntry.AddDriver(unitDriver);
+
+            Assert.Throws<InvalidOperationException>(() => this.raceEntry.CalculateAverageHorsePower());
+
+        }
+
+        [Test]
+        public void TestCalculateAverageHorsePowerShouldReturnCorect()
+        {
+             this.raceEntry.AddDriver(unitDriver);
+             this.raceEntry.AddDriver(unitDriver1);
+
+            Assert.AreEqual(100, this.raceEntry.CalculateAverageHorsePower());
+        }
     }
 }
