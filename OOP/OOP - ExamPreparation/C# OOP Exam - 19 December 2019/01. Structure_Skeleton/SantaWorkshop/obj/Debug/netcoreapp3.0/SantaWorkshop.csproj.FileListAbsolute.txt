@@ -1,0 +1,13 @@
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\bin\Debug\netcoreapp3.0\SantaWorkshop.exe
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\bin\Debug\netcoreapp3.0\SantaWorkshop.deps.json
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\bin\Debug\netcoreapp3.0\SantaWorkshop.runtimeconfig.json
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\bin\Debug\netcoreapp3.0\SantaWorkshop.runtimeconfig.dev.json
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\bin\Debug\netcoreapp3.0\SantaWorkshop.dll
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\bin\Debug\netcoreapp3.0\SantaWorkshop.pdb
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\obj\Debug\netcoreapp3.0\SantaWorkshop.csprojAssemblyReference.cache
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\obj\Debug\netcoreapp3.0\SantaWorkshop.AssemblyInfoInputs.cache
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\obj\Debug\netcoreapp3.0\SantaWorkshop.AssemblyInfo.cs
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\obj\Debug\netcoreapp3.0\SantaWorkshop.csproj.CoreCompileInputs.cache
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\obj\Debug\netcoreapp3.0\SantaWorkshop.dll
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\obj\Debug\netcoreapp3.0\SantaWorkshop.pdb
+C:\Users\niki_\Desktop\OOP Nick\C# OOP EXAMS\C# OOP Retake Exam - 19 Dec 2019 -128!!!\ex.1,2\01. Structure_Skeleton\SantaWorkshop\obj\Debug\netcoreapp3.0\SantaWorkshop.genruntimeconfig.cache

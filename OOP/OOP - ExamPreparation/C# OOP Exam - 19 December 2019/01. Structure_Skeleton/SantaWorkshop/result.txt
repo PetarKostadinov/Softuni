@@ -1,0 +1,25 @@
+Successfully added SleepyDwarf named SleepyHead.
+Successfully added HappyDwarf named Sunshine.
+Invalid dwarf type
+Successfully added instrument with power 10 to dwarf SleepyHead!
+Successfully added instrument with power 20 to dwarf Sunshine!
+Successfully added instrument with power 20 to dwarf Sunshine!
+Successfully added instrument with power 30 to dwarf Sunshine!
+Successfully added instrument with power 10 to dwarf Sunshine!
+Successfully added instrument with power 30 to dwarf Sunshine!
+Successfully added instrument with power 20 to dwarf Sunshine!
+Successfully added instrument with power 40 to dwarf Sunshine!
+Successfully added Present: Truck!
+Successfully added Present: TeddyBear!
+Successfully added Present: Doll!
+Present Truck is done.
+Present TeddyBear is done.
+Present Doll is done.
+3 presents are done!
+Dwarfs info:
+Name: SleepyHead
+Energy: 50
+Instruments: 1 not broken left
+Name: Sunshine
+Energy: 10
+Instruments: 3 not broken left

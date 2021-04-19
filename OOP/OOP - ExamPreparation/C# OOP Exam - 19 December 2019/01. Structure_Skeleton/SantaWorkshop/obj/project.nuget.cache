@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "cjahkz5701Mr7ymXpxbsu4Gc2C6Cz2h/LKJjHIJLEF8PWHqY279qwbR3JPL+mKwMroxlBIkBPYRIzgTqmGyenQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\niki_\\Desktop\\OOP Nick\\C# OOP EXAMS\\C# OOP Retake Exam - 19 Dec 2019 -128!!!\\ex.1,2\\01. Structure_Skeleton\\SantaWorkshop\\SantaWorkshop.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\niki_\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.0.3\\microsoft.netcore.app.host.win-x64.3.0.3.nupkg.sha512",
+    "C:\\Users\\niki_\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
+    "C:\\Users\\niki_\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512",
+    "C:\\Users\\niki_\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
