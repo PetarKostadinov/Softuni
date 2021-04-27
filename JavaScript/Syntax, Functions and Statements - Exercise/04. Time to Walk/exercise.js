@@ -1,15 +1,19 @@
 
 function solve(steps, footprintMeeters, kmPerHour) {
 
-    let meetersPerSecond = kmPerHour * 1000 / 3600;
-    let distance = steps * footprintMeeters;
-    let rest = Math.floor(distance / 500) * 60;
+    const secondsInHour = 3600;
+    const meetersInKm = 1000;
+    const minutesInHour = 60;
+    const distanceForBreak = 500;
+
+    const meetersPerSecond = kmPerHour * meetersInKm / secondsInHour;
+    const distance = steps * footprintMeeters;
+    const rest = Math.floor(distance / distanceForBreak) * minutesInHour;
     let time = distance / meetersPerSecond + rest;
 
-    let hours = Math.floor(time / 3600).toFixed(0).padStart(2, "0");
-    time %= 3600;
-    let minutes = Math.floor(time / 60).toFixed(0).padStart(2, "0");
-    let seconds = (time % 60).toFixed(0).padStart(2, "0");
+    const hours = Math.floor(time / secondsInHour).toFixed(0).padStart(2, "0");
+    const minutes = Math.floor(time / minutesInHour).toFixed(0).padStart(2, "0");
+    const seconds = (time % minutesInHour).toFixed(0).padStart(2, "0");
 
     time = `${hours}:${minutes}:${seconds}`;
 
