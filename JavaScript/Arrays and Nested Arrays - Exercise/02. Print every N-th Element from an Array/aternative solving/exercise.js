@@ -2,7 +2,6 @@ function solve(array, step) {
 
      return array.filter((_, index) => index % step === 0);
 
-    return result;   
 }
 
 console.log(solve(['5', 
