@@ -1,7 +1,8 @@
 function solve() {
   let input = document.getElementById('input').value;
   let output = document.getElementById('output');
-  let arrText = input.split('.');
+  output.innerHTML = '';
+  let arrText = input.split('.').filter(x => x.length > 0);
 
   for (let i = 0; i < arrText.length; i+= 3) {
 
