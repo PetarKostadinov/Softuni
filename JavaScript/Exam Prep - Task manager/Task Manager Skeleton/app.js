@@ -38,7 +38,7 @@ function solve() {
         deleteBtn.classList = 'red'
         deleteBtn.textContent = 'Delete'
 
-        let divToAdd = document.querySelector("body > main > div > section:nth-child(2) > div:nth-child(2)")
+        let divToAdd = document.getElementsByClassName('orange')[0].parentElement.nextElementSibling
 
         article.appendChild(h3);
         article.appendChild(p1Descr);
@@ -65,8 +65,7 @@ function solve() {
                 deleteBtn.textContent = 'Finish'
     
                 divInProg.appendChild(article)
-            }
-             
+            }  
         }
 
         deleteBtn.addEventListener('click', onDelete)
@@ -77,7 +76,12 @@ function solve() {
                 article.remove();
             }
             if(deleteBtn.textContent == 'Finish'){
-                let divComlete = document.querySelector("body > main > div > section:nth-child(4) > div:nth-child(2)")
+
+                let greens = Array.from(document.querySelectorAll(".green"));
+
+                let completeSection = greens[greens.length - 1];
+
+                let divComlete = completeSection.parentElement.nextElementSibling
 
                 divComlete.appendChild(article);
                 div.remove();
