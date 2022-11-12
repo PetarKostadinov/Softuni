@@ -37,8 +37,18 @@
         </tbody>
     </table>
 
-    <form>
-        <h3>FORM</h3>
+    <form id="createForm">
+        <h3>Create</h3>
+        <label>TITLE</label>
+        <input type="text" name="title" placeholder="Title...">
+        <label>AUTHOR</label>
+        <input type="text" name="author" placeholder="Author...">
+        <button>Submit</button>
+    </form>
+
+    <form id="editForm">
+        <input type="hidden" name="id">
+        <h3>Edit</h3>
         <label>TITLE</label>
         <input type="text" name="title" placeholder="Title...">
         <label>AUTHOR</label>

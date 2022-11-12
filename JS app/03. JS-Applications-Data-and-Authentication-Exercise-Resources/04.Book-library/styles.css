@@ -92,3 +92,6 @@ form button{
     border: none;
     padding: 0.5%;
 }
+#editForm{
+    display: none;
+}
