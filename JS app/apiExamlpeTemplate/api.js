@@ -69,7 +69,7 @@ export async function login(email, password) {
     };
     setUserData(userData);
 }
-export async function register(email, pasword) {
+export async function register(email, password) {
     const result = await post('/users/register', {email, password});
 
     const userData = {
