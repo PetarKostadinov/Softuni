@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "chai": "^4.3.6",
+    "lit-html": "^2.4.0",
+    "mocha": "^10.0.0",
+    "page": "^1.11.6"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "01.-edit-element",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {
+    "playwright-chromium": "^1.27.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
