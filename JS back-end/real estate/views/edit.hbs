@@ -1,0 +1,100 @@
+
+{{#with apart}}
+<section id="edit-page">
+    <div class="edit-container">
+        <div class="box-image">
+
+        </div>
+        <h2 class="box-heading">
+            Edit Home
+        </h2>
+
+        <form class="form" action="/apart/{{_id}}/edit" method="post">
+            <div class="input">
+                <input type="text" class="input-field" id="home-name" name="name" value="{{name}}" />
+                <label class="home-name">Name:</label>
+            </div>
+            <div class="input">
+                <input type="text" class="input-field" id="type" name="type" value="{{type}}" />
+                <label class="type">Property Type:</label>
+            </div>
+            <div class="input">
+                <input type="number" class="input-field" id="year" name="year" value="{{year}}" />
+                <label class="year">Year Built:</label>
+            </div>
+            <div class="input">
+                <input type="text" class="input-field" id="city" name="city" value="{{city}}" />
+                <label class="city">City</label>
+            </div>
+
+            <div class="input">
+                <input type="text" class="input-field" id="homeImage" name="image" value="{{image}}" />
+                <label class="homeImage">Home Image:</label>
+            </div>
+
+            <div class="input">
+                <input type="text" class="input-field" id="description" name="description" value="{{description}}" />
+                <label class="description">Property Description:</label>
+            </div>
+
+            <div class="input">
+                <input type="number" class="input-field" id="availablePieces" name="available" value="{{available}}" />
+                <label class="availablePieces">Available pieces:</label>
+            </div>
+
+            <div class="create-action">
+                <button class="create-button">Edit</button>
+            </div>
+        </form>
+    </div>
+</section>
+{{/with}}
+
+
+
+{{!-- {{#with hotel}}
+<section id="viewAddhotel">
+    <h2>Edit existing hotel</h2>
+    <form id="formAddhotel" action="/hotel/{{_id}}/edit" method="post">
+        <label for="hotel">Hotel name:</label>
+        <input type="text" id="hotel" name="name" value="{{name}}">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" value="{{city}}">
+        <label for="free-rooms">Free rooms:</label>
+        <input type="number" id="free-rooms" name="freeRooms" value="{{freeRooms}}">
+        <label for="imgUrl">Image:</label>
+        <input type="text" id="imgUrl" name="image" value="{{image}}">
+
+        <input type="submit" class="create" value="Add">
+    </form>
+</section>
+{{/with}} --}}
+
+
+
+
+
+
+{{!-- {{#with course}}
+<form class="text-center border border-light p-5" action="/course/{{_id}}/edit" method="POST">
+    <h1>Edit Course</h1>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" placeholder="Course name" value="{{title}}" name="title">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" placeholder="Description" name="description">{{description}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="imageUrl">Image url</label>
+        <input type="text" class="form-control" placeholder="Image Url" value="{{imageUrl}}" name="imageUrl">
+    </div>
+    <div class="form-group">
+        <label for="duration">Duration</label>
+        <input type="text" class="form-control" placeholder="4 weeks" value="{{duration}}" name="duration">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+{{/with}} --}}

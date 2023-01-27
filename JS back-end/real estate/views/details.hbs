@@ -1,0 +1,118 @@
+
+<section id="deatils-page">
+    <div class="wrapper">
+        <div class="product-img">
+            <img src="{{apart.image}}">
+        </div>
+        <div class="product-info">
+            <div class="product-text">
+                {{#with apart}}
+                <div class="product-text">
+                    <h1>Name: {{name}}</h1>
+                    <h2>Type: {{type}}</h2>
+                    <h4>Year: {{year}}</h4>
+                    <h4>City: {{city}}</h4>
+                    <p>Description: {{description}}</p>
+                    {{#if rented}}
+                    <!-- if there are already tenants of the housing, separate their names with a comma and a space ", "  -->
+                    <p>People rented this housing: {{#each rented}} {{this}} {{/each}}</p>
+                    {{else}}
+                    <!-- If not display: -->
+                    <p>People rented this housing: There are no tenants yet.</p>
+                    {{/if}}
+                </div>
+                {{/with}}
+            </div>
+
+            <!-- if there is no registered user, do not display buttons-->
+            <div class="product-btn">
+                {{#if username}}
+                 {{#with apart}}
+                    {{#if isOwner}}
+                    <!-- Only for registered user and creator of the housing offer-->
+                    <a href="/apart/{{_id}}/edit" class="edit">Edit</a>
+                    <a href="/apart/{{_id}}/delete" class="remove">Delete</a>
+                    {{else}}
+                    <!-- logged in user with available pieces-->
+                        {{#if isAvailable}}
+                            {{#unless rentedByCurentUser}}
+                            <a href="/apart/{{_id}}/rent" class="rentHome">Rent a home, available {{available}} housing</a>
+                            {{else}}
+                            <p class="alRentHome">You have already rent this home</p>
+                            {{/unless}}
+                        {{else}}
+                        <!-- logged in user with no available pieces-->
+                        <p class="no-housing">No Housing Available!</p>
+                        {{/if}}
+                    {{/if}}
+                    {{/with}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{{!-- <section id="viewhotelDetails">
+    <h2>Details</h2>
+    <div class="hotel-ticket">
+        <div class="hotel-left">
+            <img src="{{hotel.image}}" alt="">
+        </div>
+        <div class="hotel-right">
+            <div>
+                <h3>{{hotel.name}}</h3>
+            </div>
+            <div>
+                {{hotel.city}}
+            </div>
+            <p><span>Free rooms: {{hotel.freeRooms}}</span> </p>
+            {{#if hotel.isBooked}}
+            <p><span class="green">You already have booked a room</span> </p>
+            {{/if}}
+            {{#if hotel.isOwner}}
+            <a href="/hotel/{{hotel._id}}/edit" class="edit">Edit</a>
+            <a href="/hotel/{{hotel._id}}/delete" class="remove">Delete</a>
+            {{else}}
+            {{#unless hotel.isBooked}}
+            <a href="/hotel/{{hotel._id}}/book" class="book">Book</a>
+            {{/unless}}
+            {{/if}}
+        </div>
+
+    </div>
+</section>
+--}}
+
+
+
+
+{{!-- <div class="container">
+    <h1 class="my-4">Title : {{course.title}}
+    </h1>
+
+    <div class="row">
+
+        <div class="col-md-8">
+            <img class="img-fluid" src="{{course.imageUrl}}" alt="{{course.title}}" />
+        </div>
+
+        <div class="col-md-4 text-center">
+            <h4 class="my-3">Duration</h4>
+            <p>{{course.duration}}</p>
+            <h3 class="my-3">Description</h3>
+            <p>{{course.description}}</p>
+            {{#if course.isOwner}}
+            <a class="btn btn-danger" href="/course/{{course._id}}/delete">Delete</a>
+            <a class="btn btn-warning" href="/course/{{course._id}}/edit">Edit</a>
+            {{else}}
+            {{#if course.enrolled}}
+            <span class="enrolled-span">You are already enrolled</span>
+            {{else}}
+            <a class="btn btn-primary" href="/course/{{course._id}}/enroll">Enroll</a>
+            {{/if}}
+            {{/if}}
+        </div>
+    </div>
+</div> --}}
