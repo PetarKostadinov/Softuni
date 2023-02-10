@@ -1,0 +1,65 @@
+<section id="create-container">
+    <div class="create-container-info">
+        <h1>Create Announcement</h1>
+        <h4>Post your coins to sell</h4>
+        <form action="/crypto/create" method="post">
+            <label>Name:</label>
+            <input type="text" id="name" name="name" placeholder="Bitcoin" value="{{body.name}}">
+            <label>Image:</label>
+            <input type="text" id="image" name="image" placeholder="http://..." value="{{body.image}}">
+            <label>Price:</label>
+            <input type="number" id="price" name="price" placeholder="31,166.71" value="{{body.price}}">
+            <label>Description:</label>
+            <textarea id="description" name="description" placeholder="Introduce your coins...">{{body.description}}</textarea>
+            <label>Payment method:</label>
+            <select id="payment" name="payment" value="{{body.payment}}">
+                <option value="crypto-wallet">Crypto Wallet</option>
+                <option value="credit-card">Credit Card</option>
+                <option value="debit-card">Debit Card</option>
+                <option value="paypal">PayPal</option>
+            </select>
+            <input type="submit" id="btn" value="TRADE"></input>
+        </form>
+    </div>
+</section>
+
+
+{{!-- <section id="viewAddhotel">
+    <h2>Add new hotel</h2>
+    <form id="formAddhotel" action="/hotel/create" method="post">
+        <label for="hotel">Hotel name:</label>
+        <input type="text" id="hotel" name="name" placeholder="Hotel name" value="{{body.name}}">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" placeholder="City" value="{{body.city}}">
+        <label for="free-rooms">Free rooms:</label>
+        <input type="number" id="free-rooms" name="freeRooms" placeholder="Free rooms" value="{{body.freeRooms}}">
+        <label for="imgUrl">Image:</label>
+        <input type="text" id="imgUrl" name="image" placeholder="https://" value="{{body.image}}">
+
+        <input type="submit" class="create" value="Add">
+    </form>
+</section> --}}
+
+
+
+
+{{!-- <form class="text-center border border-light p-5" action="/course/create" method="post">
+    <h1>Create Course</h1>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" placeholder="Course name" name="title" value="{{body.title}}">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" placeholder="Description" name="description">{{body.description}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="imageUrl">Image url</label>
+        <input type="text" class="form-control" placeholder="Image Url" name="imageUrl" value="{{body.imageUrl}}">
+    </div>
+    <div class="form-group">
+        <label for="duration">Duration</label>
+        <input type="text" class="form-control" placeholder="4 weeks" name="duration" value="{{body.duration}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form> --}}

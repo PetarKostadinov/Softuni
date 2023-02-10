@@ -1,0 +1,73 @@
+<section id="edit-container">
+    <div class="edit-container-info">
+        <h1>Edit Announcement</h1>
+        <form action="/crypto/{{crypto._id}}/edit" method="post">
+            <label>Name:</label>
+            <input type="text" id="name" name="name" value="{{crypto.name}}">
+            <label>Image:</label>
+            <input type="text" id="image" name="image" value="{{crypto.image}}">
+            <label>Price:</label>
+            <input type="number" id="price" name="price" value="{{crypto.price}}">
+            <label>Description:</label>
+            <textarea name="description"
+                id="description">{{crypto.description}}</textarea>
+            <label>Payment method:</label>
+            <select id="payment" name="payment">
+                <option value="crypto-wallet">Crypto Wallet</option>
+                <option value="credit-card">Credit Card</option>
+                <option value="debit-card">Debit Card</option>
+                <option value="paypal" selected>PayPal</option>
+            </select>
+            <input type="submit" id="btn" value="EDIT"></input>
+        </form>
+    </div>
+</section>
+
+
+
+{{!-- {{#with hotel}}
+<section id="viewAddhotel">
+    <h2>Edit existing hotel</h2>
+    <form id="formAddhotel" action="/hotel/{{_id}}/edit" method="post">
+        <label for="hotel">Hotel name:</label>
+        <input type="text" id="hotel" name="name" value="{{name}}">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" value="{{city}}">
+        <label for="free-rooms">Free rooms:</label>
+        <input type="number" id="free-rooms" name="freeRooms" value="{{freeRooms}}">
+        <label for="imgUrl">Image:</label>
+        <input type="text" id="imgUrl" name="image" value="{{image}}">
+
+        <input type="submit" class="create" value="Add">
+    </form>
+</section>
+{{/with}} --}}
+
+
+
+
+
+
+{{!-- {{#with course}}
+<form class="text-center border border-light p-5" action="/course/{{_id}}/edit" method="POST">
+    <h1>Edit Course</h1>
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" placeholder="Course name" value="{{title}}" name="title">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" placeholder="Description" name="description">{{description}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="imageUrl">Image url</label>
+        <input type="text" class="form-control" placeholder="Image Url" value="{{imageUrl}}" name="imageUrl">
+    </div>
+    <div class="form-group">
+        <label for="duration">Duration</label>
+        <input type="text" class="form-control" placeholder="4 weeks" value="{{duration}}" name="duration">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>
+{{/with}} --}}
