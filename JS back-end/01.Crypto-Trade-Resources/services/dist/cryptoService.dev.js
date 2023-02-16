@@ -64,7 +64,7 @@ function deleteById(id) {
   });
 }
 
-function updateById(id, data) {
+function updateById(id, data, payment) {
   var existing;
   return regeneratorRuntime.async(function updateById$(_context5) {
     while (1) {
@@ -163,7 +163,7 @@ function getBookingsByUser(userId) {
 } //---SEARCH
 
 
-function search(search) {
+function search(searchName, searchPayment) {
   var query;
   return regeneratorRuntime.async(function search$(_context9) {
     while (1) {
@@ -171,17 +171,17 @@ function search(search) {
         case 0:
           query = {};
 
-          if (search) {
-            query.name = new RegExp(search, 'i');
-          } //--SORTED BY CREATED DATE
+          if (searchName) {
+            query.name = new RegExp(searchName, 'i');
+          }
 
+          if (searchPayment) {
+            query.payment = new RegExp(searchPayment, 'i');
+          }
 
-          return _context9.abrupt("return", Crypto.find(query).sort({
-            name: 1,
-            payment: 1
-          }).lean());
+          return _context9.abrupt("return", Crypto.find(query).lean());
 
-        case 3:
+        case 4:
         case "end":
           return _context9.stop();
       }

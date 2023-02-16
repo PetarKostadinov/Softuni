@@ -1,4 +1,3 @@
-
 <section id="viewhotelDetails">
     {{#with user}}
     <div class="profile"><img src="/static/img/profile.png" alt="default user">
@@ -13,17 +12,17 @@
         </div>
         {{#if booked}}
         <div class="flex">
-            
+
             <p>Reservations: </p>
             <p>
                 {{#each booked}}
                 <span>{{this}}</span>
-              
+
                 {{/each}}
             </p>
-           {{/if}}
+            {{/if}}
         </div>
-         
+
     </div>
     {{/with}}
 </section>

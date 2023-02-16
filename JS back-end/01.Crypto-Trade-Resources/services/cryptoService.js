@@ -23,7 +23,7 @@ async function deleteById(id) {
     return Crypto.findByIdAndDelete(id);
 }
 
-async function updateById(id, data) {
+async function updateById(id, data, payment) {
 
     const existing = await Crypto.findById(id);
 
@@ -64,17 +64,26 @@ async function getBookingsByUser(userId) {
 }
 
 //---SEARCH
-async function search(search) {
+async function search(searchName, searchPayment) {
     let query = {};
-    if (search) {
+  
+    if (searchName) {
 
-        query.name = new RegExp(search, 'i');
+        query.name = new RegExp(searchName, 'i');
+       
+       
     }
-	//--SORTED BY CREATED DATE
-	return Crypto.find(query).sort({ name: 1, payment: 1}).lean();
-	
-	//--UNSORTED
-   // return Crypto.find(query).lean();
+    if (searchPayment) {
+
+      
+        query.payment = new RegExp(searchPayment, 'i');
+        
+    }
+
+
+    return Crypto.find(query).lean();
+
+   
 }
 
 module.exports = {

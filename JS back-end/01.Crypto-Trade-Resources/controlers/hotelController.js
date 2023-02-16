@@ -1,3 +1,4 @@
+const { query } = require('express');
 const {
     hasUser
 } = require('../middlewares/guards');
@@ -10,6 +11,7 @@ const {
     getAllCryptos,
     search
 } = require('../services/cryptoService');
+const { paymentMethodsMap } = require('../util/constants');
 const {
     parseError
 } = require('../util/parser');
@@ -33,8 +35,16 @@ cryptoController.get('/404', (req, res) => {
 
 
 cryptoController.get('/create', hasUser(), (req, res) => {
+    const paymentMethods = Object.keys(paymentMethodsMap)
+    .map(x => ({
+        value: x, 
+        label: paymentMethodsMap[x],
+        isSelected: true
+    
+    }));
     res.render('create', {
-        title: 'Create crypto'
+        title: 'Create crypto',
+        paymentMethods
     });
 });
 
@@ -69,6 +79,13 @@ cryptoController.post('/create', hasUser(), async (req, res) => {
 cryptoController.get('/:id/details', async (req, res) => {
     const crypto = await getById(req.params.id);
 
+    const paymentMethods = Object.keys(paymentMethodsMap)
+    .map(x => ({
+        value: x, 
+        label: paymentMethodsMap[x],
+        isSelected: crypto.payment == x
+    
+    }));
     //console.log(crypto.owner.toString())
 
     if (req.user) {
@@ -76,10 +93,12 @@ cryptoController.get('/:id/details', async (req, res) => {
         crypto.isBought = crypto.buyCryptoUsers.map(x => x.toString()).includes(req.user._id.toString());
 
     }
+    console.log(paymentMethods)
 
     res.render('details', {
         title: crypto.title,
-        crypto
+        crypto,
+        paymentMethods
     });
 });
 
@@ -96,9 +115,19 @@ cryptoController.get('/:id/delete', hasUser(), async (req, res) => {
 
 cryptoController.get('/:id/edit', hasUser(), async (req, res) => {
     const crypto = await getById(req.params.id);
+    const paymentMethods = Object.keys(paymentMethodsMap)
+    .map(x => ({
+        value: x, 
+        label: paymentMethodsMap[x],
+        isSelected: crypto.payment == x
+    
+    }));
+
+
     res.render('edit', {
         title: 'Edit crypto',
-        crypto
+        crypto,
+        paymentMethods
     });
 
 });
@@ -119,6 +148,7 @@ cryptoController.post('/:id/edit', hasUser(), async (req, res) => {
         payment: req.body.payment
 
     };
+    console.log(edited.payment)
 
     try {
         if (Object.values(edited).some(x => !x)) {
@@ -167,21 +197,32 @@ cryptoController.get('/:id/buy', hasUser(), async (req, res) => {
 })
 
 cryptoController.get('/search', hasUser(), async (req, res) => {
-   
+    const crypto = await getById(req.params.id);
+    const paymentMethods = Object.keys(paymentMethodsMap)
+    .map(x => ({
+        value: x, 
+        label: paymentMethodsMap[x]
+       
+    
+    }));
+
     let cryptos = [];
     //let justPage = false;
-
-    if(req.user) {
-        cryptos = await search(req.query.search);
-        // if(req.query.search) {
-        //     justPage = true;
-        // }  
-    }
     
+    if (req.user) {
+        cryptos = await search(req.query.searchName, req.query.searchPayment);
+      
+        
+    }
+
     res.render('search', {
         title: 'Search cryptos',
         cryptos,
-        search: req.query.search
+        searchedName: req.query.searchName,
+        searchedPay: req.query.searchPayment,
+        paymentMethods
+        
+        
     });
 });
 

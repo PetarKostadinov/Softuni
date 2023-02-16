@@ -1,19 +1,25 @@
 "use strict";
 
-var _require = require('../middlewares/guards'),
-    hasUser = _require.hasUser;
+var _require = require('express'),
+    query = _require.query;
 
-var _require2 = require('../services/cryptoService'),
-    createCrypto = _require2.createCrypto,
-    getById = _require2.getById,
-    deleteById = _require2.deleteById,
-    updateById = _require2.updateById,
-    buy = _require2.buy,
-    getAllCryptos = _require2.getAllCryptos,
-    search = _require2.search;
+var _require2 = require('../middlewares/guards'),
+    hasUser = _require2.hasUser;
 
-var _require3 = require('../util/parser'),
-    parseError = _require3.parseError;
+var _require3 = require('../services/cryptoService'),
+    createCrypto = _require3.createCrypto,
+    getById = _require3.getById,
+    deleteById = _require3.deleteById,
+    updateById = _require3.updateById,
+    buy = _require3.buy,
+    getAllCryptos = _require3.getAllCryptos,
+    search = _require3.search;
+
+var _require4 = require('../util/constants'),
+    paymentMethodsMap = _require4.paymentMethodsMap;
+
+var _require5 = require('../util/parser'),
+    parseError = _require5.parseError;
 
 var cryptoController = require('express').Router();
 
@@ -46,8 +52,16 @@ cryptoController.get('/404', function (req, res) {
   });
 });
 cryptoController.get('/create', hasUser(), function (req, res) {
+  var paymentMethods = Object.keys(paymentMethodsMap).map(function (x) {
+    return {
+      value: x,
+      label: paymentMethodsMap[x],
+      isSelected: true
+    };
+  });
   res.render('create', {
-    title: 'Create crypto'
+    title: 'Create crypto',
+    paymentMethods: paymentMethods
   });
 });
 cryptoController.post('/create', hasUser(), function _callee2(req, res) {
@@ -102,7 +116,7 @@ cryptoController.post('/create', hasUser(), function _callee2(req, res) {
   }, null, null, [[1, 9]]);
 });
 cryptoController.get('/:id/details', function _callee3(req, res) {
-  var crypto;
+  var crypto, paymentMethods;
   return regeneratorRuntime.async(function _callee3$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
@@ -112,8 +126,14 @@ cryptoController.get('/:id/details', function _callee3(req, res) {
 
         case 2:
           crypto = _context3.sent;
+          paymentMethods = Object.keys(paymentMethodsMap).map(function (x) {
+            return {
+              value: x,
+              label: paymentMethodsMap[x],
+              isSelected: crypto.payment == x
+            };
+          }); //console.log(crypto.owner.toString())
 
-          //console.log(crypto.owner.toString())
           if (req.user) {
             crypto.isOwner = crypto.owner.toString() == req.user._id.toString();
             crypto.isBought = crypto.buyCryptoUsers.map(function (x) {
@@ -121,12 +141,14 @@ cryptoController.get('/:id/details', function _callee3(req, res) {
             }).includes(req.user._id.toString());
           }
 
+          console.log(paymentMethods);
           res.render('details', {
             title: crypto.title,
-            crypto: crypto
+            crypto: crypto,
+            paymentMethods: paymentMethods
           });
 
-        case 5:
+        case 7:
         case "end":
           return _context3.stop();
       }
@@ -167,7 +189,7 @@ cryptoController.get('/:id/delete', hasUser(), function _callee4(req, res) {
   });
 });
 cryptoController.get('/:id/edit', hasUser(), function _callee5(req, res) {
-  var crypto;
+  var crypto, paymentMethods;
   return regeneratorRuntime.async(function _callee5$(_context5) {
     while (1) {
       switch (_context5.prev = _context5.next) {
@@ -177,12 +199,20 @@ cryptoController.get('/:id/edit', hasUser(), function _callee5(req, res) {
 
         case 2:
           crypto = _context5.sent;
+          paymentMethods = Object.keys(paymentMethodsMap).map(function (x) {
+            return {
+              value: x,
+              label: paymentMethodsMap[x],
+              isSelected: crypto.payment == x
+            };
+          });
           res.render('edit', {
             title: 'Edit crypto',
-            crypto: crypto
+            crypto: crypto,
+            paymentMethods: paymentMethods
           });
 
-        case 4:
+        case 5:
         case "end":
           return _context5.stop();
       }
@@ -216,29 +246,30 @@ cryptoController.post('/:id/edit', hasUser(), function _callee6(req, res) {
             description: req.body.description,
             payment: req.body.payment
           };
-          _context6.prev = 6;
+          console.log(edited.payment);
+          _context6.prev = 7;
 
           if (!Object.values(edited).some(function (x) {
             return !x;
           })) {
-            _context6.next = 9;
+            _context6.next = 10;
             break;
           }
 
           return _context6.abrupt("return", new Error('All fields are required'));
 
-        case 9:
-          _context6.next = 11;
+        case 10:
+          _context6.next = 12;
           return regeneratorRuntime.awrap(updateById(req.params.id, edited));
 
-        case 11:
+        case 12:
           res.redirect("/crypto/".concat(req.params.id, "/details"));
-          _context6.next = 18;
+          _context6.next = 19;
           break;
 
-        case 14:
-          _context6.prev = 14;
-          _context6.t0 = _context6["catch"](6);
+        case 15:
+          _context6.prev = 15;
+          _context6.t0 = _context6["catch"](7);
           errors = parseError(_context6.t0); //crypto._id = req.params.id;
 
           res.render('edit', {
@@ -249,12 +280,12 @@ cryptoController.post('/:id/edit', hasUser(), function _callee6(req, res) {
             errors: errors
           });
 
-        case 18:
+        case 19:
         case "end":
           return _context6.stop();
       }
     }
-  }, null, null, [[6, 14]]);
+  }, null, null, [[7, 15]]);
 });
 cryptoController.get('/:id/buy', hasUser(), function _callee7(req, res) {
   var crypto;
@@ -303,32 +334,45 @@ cryptoController.get('/:id/buy', hasUser(), function _callee7(req, res) {
   }, null, null, [[3, 12]]);
 });
 cryptoController.get('/search', hasUser(), function _callee8(req, res) {
-  var cryptos;
+  var crypto, paymentMethods, cryptos;
   return regeneratorRuntime.async(function _callee8$(_context8) {
     while (1) {
       switch (_context8.prev = _context8.next) {
         case 0:
+          _context8.next = 2;
+          return regeneratorRuntime.awrap(getById(req.params.id));
+
+        case 2:
+          crypto = _context8.sent;
+          paymentMethods = Object.keys(paymentMethodsMap).map(function (x) {
+            return {
+              value: x,
+              label: paymentMethodsMap[x]
+            };
+          });
           cryptos = []; //let justPage = false;
 
           if (!req.user) {
-            _context8.next = 5;
+            _context8.next = 9;
             break;
           }
 
-          _context8.next = 4;
-          return regeneratorRuntime.awrap(search(req.query.search));
+          _context8.next = 8;
+          return regeneratorRuntime.awrap(search(req.query.searchName, req.query.searchPayment));
 
-        case 4:
+        case 8:
           cryptos = _context8.sent;
 
-        case 5:
+        case 9:
           res.render('search', {
             title: 'Search cryptos',
             cryptos: cryptos,
-            search: req.query.search
+            searchedName: req.query.searchName,
+            searchedPay: req.query.searchPayment,
+            paymentMethods: paymentMethods
           });
 
-        case 6:
+        case 10:
         case "end":
           return _context8.stop();
       }
