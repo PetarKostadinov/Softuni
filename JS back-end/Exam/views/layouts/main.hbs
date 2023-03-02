@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Starts Head Section -->
+
+<head>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="/static/images/free-30-instagram-stories-icons23_122570.png">
+    <title>Petstagram</title>
+</head>
+
+<!-- Starts Body Section -->
+
+<body>
+    <!--Error Container-->
+{{#if errors}}
+   <div>
+        <div class="errorContainer">
+            {{#each errors}}
+            <p>{{this}}</p>
+            {{/each}}
+        </div>
+    </div>
+{{/if}}
+    <!-- Starts Header Section with Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <!-- Link to Home Page -->
+                    <a href="/">
+                        <img width="50px" src="/static/images/free-30-instagram-stories-icons23_122570.png" alt="img1">
+                    </a>
+                    <!-- Link to Home Page -->
+                    <a class="home" href="/">
+                        <i>Petstagram</i>
+                    </a>
+                </div>
+
+                <div class="nav-links">
+                    <ul class="nav-group">
+                        <li class="nav-item">
+                            <!-- Link to Catalog Page -->
+                            <a href="/photo/catalog">
+                                <i>Catalog</i>
+                            </a>
+                        </li>
+                            {{#unless username}}
+                        <!--For Guest User-->
+                        <li class="nav-item">
+                            <!-- Link to Login Page -->
+                            <a href="/auth/login">
+                                <i>Login</i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- Link to Register Page -->
+                            <a href="/auth/register">
+                                <i>Register</i>
+                            </a>
+                        </li>
+                        {{else}}
+                        <!--For login users-->
+                        <li class="nav-item">
+                            <!-- Link to Add Photo Page -->
+                            <a href="/photo/create">
+                                <i>Add Photo</i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <!-- Link to Profile Page -->
+                            <a href="/profile">
+                                <i>Profile</i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <!-- Link to Logout Page -->
+                            <a href="/auth/logout">
+                                <i>Logout</i>
+                            </a>
+                        </li>
+                        {{/unless}}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Starts Main Section -->
+    <main>
+        <!--Welcome Page-->
+        {{!-- <section class="welcome-content">
+            <article class="welcome-content-text">
+                <h1>Place for Your</h1>
+                <h1 class="bold-welcome">Pets photos</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod.</p>
+            </article>
+            <article class="welcome-content-image">
+                <img src="/static/images/header-dog.png" alt="dog">
+            </article>
+        </section>--}}
+{{{body}}}
+    </main> 
+        
+    <!-- Starts Footer Section -->
+    <div class="footer">
+        <span class="footer-section">
+            © 2023 SoftUni Back-End Exam
+        </span>
+    </div>
+
+</body>
+
+</html>
+
+
+{{!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BookingUni</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div id="container">
+
+        <div>
+            {{#each errors}}
+            <div class="notification errorBox">
+                <span>{{this}}</span>
+            </div>
+            {{/each}}
+        </div>
+
+        <nav>
+            <div class="left-container">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    {{#if username}}
+                    <li><a href="/hotel/create">Add +</a></li>
+                    {{else}}
+                    <li><a href="/auth/login">Login</a></li>
+                    <li><a href="/auth/register">Register</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+            <div class="right-container">
+                {{#if username}}
+                <a href="/profile" class="log-out">{{username}}</a>
+                <a href="/auth/logout" class="log-out">Logout</a>
+                {{/if}}
+            </div>
+        </nav>
+        {{{body}}}
+        <footer>@SoftUni - JS Back-end - BookingUni 2020</footer>
+    </div>
+</body>
+</html> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!--
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link href="../static/css/site.css" type="text/css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <a class="navbar-brand" href="/">Tutorials</a>
+
+            <ul class="navbar-nav ml-auto">
+                {{#if username}}
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">Welcome, {{username}}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/logout">Logout</a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/login">Login</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/auth/register">Register</a>
+                </li>
+                {{/if}}
+            </ul>
+        </nav>
+        {{#if errors}}
+        <section class="notifications">
+            {{#each errors}}
+            <p class="notification-message">{{this}}</p>
+            {{/each}}
+        </section>
+        {{/if}}
+
+        <main>
+            {{{body}}}
+
+        </main>
+
+        <footer class="page-footer font-small">
+            <div class="footer-copyright text-center py-3">© 2020
+                <a href="https://softuni.bg/trainings/3048/js-back-end-september-2020">JS Back-End</a>
+            </div>
+        </footer>
+
+    </div>
+</body> --}}
