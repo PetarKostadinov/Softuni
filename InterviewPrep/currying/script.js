@@ -2,7 +2,6 @@
 //In currying, a function that takes multiple arguments is transformed into a series of nested functions, each of which takes a single argument.
 //The nested functions are constructed in such a way that they each return a new function until all the arguments have been processed.
 
-
 function add(a) {
     return function (b) {
         if (b) return add(a + b);
@@ -11,7 +10,6 @@ function add(a) {
 };
 
 console.log(add(5)(2)(4)(8)());
-
 
 //second example
 
