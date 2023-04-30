@@ -16,7 +16,7 @@ console.log(add(5)(2)(4)(8)());
 function add1(x, y) {
     return x + y;
 }
-//Using currying, we can transform add into a series of nested functions:
+//Using currying, we can transform add into a series of nested functions
 
 function add1(x) {
     return function (y) {
