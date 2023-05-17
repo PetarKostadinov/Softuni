@@ -2,16 +2,50 @@
   text-align: center;
 }
 
-/* .products__single {
-  display: 'flex';
-  gap: 20px;
-  padding: 20px;
+.products {
   margin: 20px;
+  padding: 0;
 
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-.products {
-  align-items: center;
-  display: flex;
+.card {
+  height: 150px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 5px;
+  display: grid;
+  background-color: aqua;
+  cursor: pointer;
+}
 
-} */
+.card-img-top {
+  height: 150px;
+  width: 100px;
+  object-fit: cover;
+  margin-bottom: 3px;
+}
+
+
+.pagination {
+  padding: 10px;
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination>span {
+  padding: 15px 20px;
+  border: 1px solid grey;
+  cursor: pointer;
+}
+
+.pagination__selected {
+  background-color: bisque;
+}
+
+.pagination__disabled {
+  opacity: 0;
+}
