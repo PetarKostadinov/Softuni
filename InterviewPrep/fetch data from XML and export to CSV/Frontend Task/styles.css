@@ -1,0 +1,40 @@
+﻿#myTable {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    overflow-x: auto;
+    justify-items: center;
+    align-items: center;
+}
+
+#myTable th,
+#myTable td {
+    border: 3px solid white;
+    padding: 8px;
+    text-align: center;
+}
+
+#myTable th {
+    background-color: #FFD3D3;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+#exportButton {
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 0.5vh;
+    padding: 0.3%;
+}
+
+#exportButton:hover {
+    background-color: cornsilk;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    #myTable {
+        grid-template-columns: 1fr;
+    }
+}
