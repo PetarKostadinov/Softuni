@@ -1,0 +1,2 @@
+﻿New taxes can be added easily by declaring a new method in the ITaxService.cs interface, then implementing the method and initializing
+in TaxService.cs and after that we need to invoke the method in SalaryCalculatorService.cs inside the CalculateTotalTaxes method.
