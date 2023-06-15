@@ -1,0 +1,13 @@
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\bin\Debug\netcoreapp3.1\ArrayMan.exe
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\bin\Debug\netcoreapp3.1\ArrayMan.deps.json
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\bin\Debug\netcoreapp3.1\ArrayMan.runtimeconfig.json
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\bin\Debug\netcoreapp3.1\ArrayMan.runtimeconfig.dev.json
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\bin\Debug\netcoreapp3.1\ArrayMan.dll
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\bin\Debug\netcoreapp3.1\ArrayMan.pdb
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\obj\Debug\netcoreapp3.1\ArrayMan.csprojAssemblyReference.cache
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\obj\Debug\netcoreapp3.1\ArrayMan.AssemblyInfoInputs.cache
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\obj\Debug\netcoreapp3.1\ArrayMan.AssemblyInfo.cs
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\obj\Debug\netcoreapp3.1\ArrayMan.csproj.CoreCompileInputs.cache
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\obj\Debug\netcoreapp3.1\ArrayMan.dll
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\obj\Debug\netcoreapp3.1\ArrayMan.pdb
+C:\Users\niki_\source\repos\ArrayMan\ArrayMan\obj\Debug\netcoreapp3.1\ArrayMan.genruntimeconfig.cache
