@@ -1,0 +1,14 @@
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\bin\Debug\netcoreapp3.1\ConsoleApp17.exe
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\bin\Debug\netcoreapp3.1\ConsoleApp17.deps.json
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\bin\Debug\netcoreapp3.1\ConsoleApp17.runtimeconfig.json
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\bin\Debug\netcoreapp3.1\ConsoleApp17.runtimeconfig.dev.json
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\bin\Debug\netcoreapp3.1\ConsoleApp17.dll
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\bin\Debug\netcoreapp3.1\ConsoleApp17.pdb
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\obj\Debug\netcoreapp3.1\ConsoleApp17.csproj.AssemblyReference.cache
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\obj\Debug\netcoreapp3.1\ConsoleApp17.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\obj\Debug\netcoreapp3.1\ConsoleApp17.AssemblyInfoInputs.cache
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\obj\Debug\netcoreapp3.1\ConsoleApp17.AssemblyInfo.cs
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\obj\Debug\netcoreapp3.1\ConsoleApp17.csproj.CoreCompileInputs.cache
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\obj\Debug\netcoreapp3.1\ConsoleApp17.dll
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\obj\Debug\netcoreapp3.1\ConsoleApp17.pdb
+C:\Users\niki_\source\repos\ConsoleApp17\ConsoleApp17\obj\Debug\netcoreapp3.1\ConsoleApp17.genruntimeconfig.cache
