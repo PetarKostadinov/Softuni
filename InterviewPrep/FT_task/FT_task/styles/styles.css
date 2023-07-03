@@ -1,0 +1,132 @@
+﻿/* Reset default styles */
+* {
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+
+
+}
+
+/* Main container */
+.markets-data-wrapper {
+    list-style-type: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 600;
+    background-color: #262a33;
+    height: 39px;
+    margin-top: 20px;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2px;
+    padding-right: 2px;
+    overflow: hidden;
+
+}
+
+/* List of symbols */
+.markets-data__items {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    font-size: 13px;
+
+    white-space: nowrap;
+
+}
+
+.markets-data__item-link {
+    text-decoration: none;
+}
+
+.markets-data__item-change--up,
+.markets-data__item-change--down {
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 0 4px;
+    font-size: 13px;
+}
+
+.markets-data__item-change--up {
+    color: #9cd321;
+    border-color: #9cd321;
+}
+
+.markets-data__item-change--down {
+    color: #fe5722;
+    border-color: #fe5722;
+}
+
+/* Border around numbers with % */
+.markets-data__item-change::after {
+    display: inline-block;
+    border-radius: 3px;
+    padding: 0 4px;
+    margin-left: 4px;
+}
+
+.neutral {
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+/* Symbol text */
+.markets-data__item-symbol {
+    font-size: 16px;
+    color: #FFFFFF;
+    padding-right: 3px;
+    margin: 0 5px 0 0;
+
+}
+
+header {
+    padding: 30px;
+    padding-bottom: 20px;
+    padding-top: 90px;
+    background-color: #FFF1E5;
+    width: 100%;
+    overflow: hidden;
+}
+
+.title {
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.markets-data__item-name {
+    margin-right: 5px;
+    color: #fff;
+}
+
+
+
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-top-color: #0A5E66;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
