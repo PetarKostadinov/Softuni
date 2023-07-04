@@ -9,9 +9,7 @@ export async function fetchData() {
         return data;
     } catch (error) {
         console.error('Failed to fetch data:', error);
-        return null;
+        return {'error': error};
     }
 };
-
-
 

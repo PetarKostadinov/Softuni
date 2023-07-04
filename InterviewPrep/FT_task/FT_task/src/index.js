@@ -1,54 +1,51 @@
-
 import {fetchData} from './fetchData.js';
-import {showSpiner} from './spiner.js';
+import {showSpinner} from './spinner.js';
 import {symbolMappings} from './symbolMappings.js';
 
 const appElement = document.getElementById('app');
 let marketsDataWrapperDiv = '';
-let marketsDataUnorderdList = '';
+let marketsDataUnorderedList = '';
 let marketsDataListItem = '';
 let articleHoldingLink = '';
 let itemChange = '';
 let spanPlusMinus = '';
 let percentage = '';
 
-fetchData().then(buildUI);
+try {
+    fetchData().then(buildUI);
+} catch (error) {
+    showSpinner();
+}
+
 
 function buildUI(data) {
-
-    if (data) {
-        createElementsAndShowMarketsData(data);
+    if (data.error) {
+        showSpinner();
     } else {
-        showSpiner();
+        createElementsAndShowMarketsData(data);
     }
 };
 
 function createElementsAndShowMarketsData(data) {
-
-    createDataWrapperDivAndUnorderdList();
+    createDataWrapperDivAndUnorderedList();
     createListElementForEachItemAndAddData(data);
 };
 
-function createDataWrapperDivAndUnorderdList() {
-
+function createDataWrapperDivAndUnorderedList() {
     marketsDataWrapperDiv = document.createElement('div');
     marketsDataWrapperDiv.classList.add('markets-data-wrapper', 'js-markets-data');
-    marketsDataUnorderdList = document.createElement('ul');
-    marketsDataUnorderdList.classList.add('markets-data__items');
-
+    marketsDataUnorderedList = document.createElement('ul');
+    marketsDataUnorderedList.classList.add('markets-data__items');
     appElement.appendChild(marketsDataWrapperDiv);
-    marketsDataWrapperDiv.appendChild(marketsDataUnorderdList);
+    marketsDataWrapperDiv.appendChild(marketsDataUnorderedList);
 };
 
 function createListElementForEachItemAndAddData(data) {
-
     data.data.items.forEach((item) => {
-
         if (item.quote.change1Day != 0) {
-
             marketsDataListItem = document.createElement('li');
             marketsDataListItem.classList.add('markets-data__item');
-            marketsDataUnorderdList.appendChild(marketsDataListItem);
+            marketsDataUnorderedList.appendChild(marketsDataListItem);
 
             addNameAndLinkFromMappedValueObject(item);
             addChange1DayPercent(item);
@@ -61,14 +58,12 @@ function createListElementForEachItemAndAddData(data) {
 };
 
 function addNameAndLinkFromMappedValueObject(item) {
-
     articleHoldingLink = document.createElement('a');
     articleHoldingLink.setAttribute('href', item.link);
     articleHoldingLink.classList.add('markets-data__item-link');
     marketsDataListItem.appendChild(articleHoldingLink);
     const itemSymbol = document.createElement('span');
     itemSymbol.classList.add('markets-data__item-name');
-
     const mappedValue = symbolMappings[item.basic.symbol.slice()];
 
     if (mappedValue) {
@@ -83,7 +78,6 @@ function addNameAndLinkFromMappedValueObject(item) {
 }
 
 function addChange1DayPercent(item) {
-
     itemChange = document.createElement('span');
     itemChange.classList.add('markets-data__item-change');
 
@@ -91,17 +85,11 @@ function addChange1DayPercent(item) {
     percentage = document.createTextNode(Math.abs(item.quote.change1DayPercent.toFixed(2)) + '%');
 
     if (item.quote.change1Day > 0) {
-
         spanPlusMinus.textContent = "+";
         itemChange.classList.add('markets-data__item-change--up');
-
     } else {
-        spanPlusMinus.textContent = "-";
+        spanPlusMinus.textContent = "−";
         itemChange.classList.add('markets-data__item-change--down');
     }
 };
-
-export {
-    addChange1DayPercent
-}
 
