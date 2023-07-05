@@ -1,15 +1,14 @@
-﻿/* Reset default styles */
-* {
+﻿* {
     box-sizing: border-box;
-    text-rendering: optimizeLegibility;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-
-
 }
 
-/* Main container */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 .markets-data-wrapper {
     list-style-type: none;
     font-family: sans-serif;
@@ -19,18 +18,15 @@
     background-color: #262a33;
     height: 39px;
     margin-top: 20px;
-
     padding-top: 10px;
     padding-bottom: 10px;
     display: flex;
     justify-content: space-between;
-    padding-left: 2px;
-    padding-right: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
     overflow: hidden;
-
 }
 
-/* List of symbols */
 .markets-data__items {
     display: flex;
     justify-content: space-between;
@@ -39,9 +35,7 @@
     list-style-type: none;
     width: 100%;
     font-size: 13px;
-
     white-space: nowrap;
-
 }
 
 .markets-data__item-link {
@@ -62,11 +56,10 @@
 }
 
 .markets-data__item-change--down {
-    color: #fe5722;
-    border-color: #fe5722;
+    color: #FF767C;
+    border-color: #FF767C;
 }
 
-/* Border around numbers with % */
 .markets-data__item-change::after {
     display: inline-block;
     border-radius: 3px;
@@ -79,13 +72,11 @@
     border-color: #FFFFFF;
 }
 
-/* Symbol text */
 .markets-data__item-symbol {
     font-size: 16px;
     color: #FFFFFF;
     padding-right: 3px;
     margin: 0 5px 0 0;
-
 }
 
 header {
@@ -108,8 +99,6 @@ header {
     margin-right: 5px;
     color: #fff;
 }
-
-
 
 .spinner {
     display: inline-block;
