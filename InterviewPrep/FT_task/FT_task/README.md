@@ -24,7 +24,7 @@
     The project follows a modular structure with clear separation of concerns.
     Each file and directory has a specific purpose, responsibility and appropriate name.
 # Error Handling
-    The app handles potential errors during data fetching and displays appropriate messages.
+    The app handles potential errors during data fetching and building the elements and displays appropriate messages.
 # Responsiveness
     The app is designed to be responsive and adapt to different screen sizes.
     The layout and formatting adjust based on the screen dimensions.
