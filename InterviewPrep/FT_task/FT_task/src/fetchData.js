@@ -16,7 +16,7 @@
 //     }
 // };
 
-const API_URL = 'http://localhost:4000/graphql'; // Replace with your GraphQL API endpoint
+const API_URL = 'http://localhost:3000/graphql';
 
 const GET_QUOTES = `
   query {
@@ -33,24 +33,24 @@ const GET_QUOTES = `
 `;
 
 export async function fetchData() {
-    try {
-        const response = await fetch(API_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                query: GET_QUOTES,
-            }),
-        });
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query: GET_QUOTES,
+      }),
+    });
 
-        const result = await response.json();
-        const data = result.data.quotes.items;
+    const result = await response.json();
+    const data = result.data.quotes.items;
+    console.log("🚀 ~ file: fetchData.js:49 ~ fetchData ~ data:", data)
 
-        return data;
-    } catch (error) {
-        console.error('Failed to fetch data:', error);
-        return [];
-    }
+    return data;
+  } catch (error) {
+    console.error('Failed to fetch data:', error);
+    return [];
+  }
 }
-//module.exports = fetchData

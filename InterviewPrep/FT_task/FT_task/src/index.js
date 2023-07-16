@@ -69,11 +69,10 @@ function addNameAndLinkFromMappedValueObject(item) {
 
     if (mappedValue) {
         itemSymbol.textContent = mappedValue.name;
-        if (mappedValue.link) {
+        if (mappedValue.link)
             articleHoldingLink.setAttribute('href', mappedValue.link);
-        }
     } else {
-        itemSymbol.textContent = item.symbolInput.split(':')[0];
+        itemSymbol.textContent = item.symbolInput;
     }
     articleHoldingLink.appendChild(itemSymbol);
 }
