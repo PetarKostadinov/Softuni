@@ -1,4 +1,3 @@
-
 //toggle icon navbar
 let menuIcon = document.querySelector('#menu-icon')
 let navbar = document.querySelector('.navbar')
@@ -44,3 +43,7 @@ window.onscroll = () => {
 
     footer.classList.toggle('show-animate', this.innerHeight + this.scrollY >= document.scrollingElement.scrollHeight)
 }
+
+
+
+
