@@ -286,7 +286,21 @@ section {
     transition: 3s;
 }
 
-@media (max-width: 1079px) {
+@media (max-width: 1285px) {
+    .img__home-sci {
+        width: 150%;
+        height: auto;
+
+    }
+}
+
+.img__home-sci {
+    position: absolute;
+    max-width: 118%;
+    max-height: 118%;
+}
+
+@media (max-width: 706px) {
     .img__home-sci {
         display: none;
 
